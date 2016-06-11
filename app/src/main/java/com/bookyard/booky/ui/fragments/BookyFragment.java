@@ -1,4 +1,4 @@
-package com.bookyard.booky;
+package com.bookyard.booky.ui.fragments;
 
 import android.support.v4.app.Fragment;
 

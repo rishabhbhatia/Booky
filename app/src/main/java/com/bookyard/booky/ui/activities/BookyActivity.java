@@ -1,4 +1,4 @@
-package com.bookyard.booky;
+package com.bookyard.booky.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,7 +1,7 @@
 package com.bookyard.booky.interfaces;
 
-import com.bookyard.booky.BookyActivity;
-import com.bookyard.booky.BookyFragment;
+import com.bookyard.booky.ui.activities.BookyActivity;
+import com.bookyard.booky.ui.fragments.BookyFragment;
 
 /**
  * Created by Rishabh Bhatia on 6/11/2016.
