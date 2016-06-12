@@ -1,3 +1,19 @@
 <resources>
+
     <string name="app_name">Booky</string>
+
+    <!-- Generic Text -->
+    <string name="simple_progress_dialog_loading">Loading..</string>
+    <string name="no_internet">Internet not connected. Please connect &amp; retry!</string>
+    <string name="generic_error_msg">Something went wrong. Please retry later!</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Dream Books Delivered At Doorstep</string>
+
+    <!-- Login Screen -->
+    <string name="login_phone_number">Phone Number</string>
+    <string name="login_pass">Password</string>
+    <string name="login_action">Login</string>
+    <string name="login_sign_up">Sign Up</string>
+
 </resources>
