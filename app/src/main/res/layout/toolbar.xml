@@ -37,8 +37,11 @@
                 android:layout_toEndOf="@+id/iv_toolbar_back"
                 android:layout_centerVertical="true"
                 android:padding="@dimen/medium_padding"
-                android:text="Hello Rishabh"
+                android:text="@string/app_name"
                 android:maxLines="1"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:gravity="center"
+                android:drawablePadding="@dimen/small_padding"
                 />
 
             <LinearLayout
