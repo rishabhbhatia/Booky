@@ -1,7 +1,7 @@
 package com.bookyard.booky.ui.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Rishabh Bhatia on 6/12/2016.
+ * Created by Rishabh Bhatia on 6/PADDING_MEDIUM/2016.
  */
 public class MainLandingActivity extends BookyActivity {
 
@@ -36,19 +36,25 @@ public class MainLandingActivity extends BookyActivity {
     TextView tvCategoryLeft;
     @BindView(R.id.tv_category_right)
     TextView tvCategoryRight;
-    @BindView(R.id.card_category)
-    CardView cardCategory;
+
+    private final int PADDING_LARGE = 25;
+    private final int PADDING_MEDIUM = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_landing);
         ButterKnife.bind(this);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        tvCategoryLeft.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                PADDING_LARGE, PADDING_MEDIUM);
+        tvCategoryRight.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                PADDING_LARGE, PADDING_MEDIUM);
     }
 
     @Override
@@ -65,8 +71,24 @@ public class MainLandingActivity extends BookyActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_category_left:
+                tvCategoryLeft.setBackgroundResource(R.drawable.category_left_black_bg);
+                tvCategoryRight.setBackgroundResource(R.drawable.category_right_white_bg);
+                tvCategoryLeft.setTextColor(Color.parseColor("#FFFFFF"));
+                tvCategoryRight.setTextColor(Color.parseColor("#000000"));
+                tvCategoryLeft.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                        PADDING_LARGE, PADDING_MEDIUM);
+                tvCategoryRight.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                        PADDING_LARGE, PADDING_MEDIUM);
                 break;
             case R.id.tv_category_right:
+                tvCategoryRight.setBackgroundResource(R.drawable.category_right_black_bg);
+                tvCategoryLeft.setBackgroundResource(R.drawable.category_left_white_bg);
+                tvCategoryRight.setTextColor(Color.parseColor("#FFFFFF"));
+                tvCategoryLeft.setTextColor(Color.parseColor("#000000"));
+                tvCategoryLeft.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                        PADDING_LARGE, PADDING_MEDIUM);
+                tvCategoryRight.setPadding(PADDING_LARGE, PADDING_MEDIUM,
+                        PADDING_LARGE, PADDING_MEDIUM);
                 break;
         }
     }
