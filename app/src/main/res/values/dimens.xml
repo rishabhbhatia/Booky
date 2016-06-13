@@ -3,10 +3,11 @@
 
     <!-- Paddings -->
 
-    <dimen name="extra_small_padding">2dp</dimen>
+    <dimen name="extra_small_padding">1dp</dimen>
     <dimen name="small_padding">5dp</dimen>
     <dimen name="medium_padding">7dp</dimen>
     <dimen name="large_padding">10dp</dimen>
     <dimen name="extra_large_padding">12dp</dimen>
+    <dimen name="extra_extra_large_padding">22dp</dimen>
 
 </resources>

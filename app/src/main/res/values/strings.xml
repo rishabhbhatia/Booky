@@ -16,4 +16,8 @@
     <string name="login_action">Login</string>
     <string name="login_sign_up">Sign Up</string>
 
+    <!-- Main Landing Screen -->
+    <string name="main_landing_category_recent">Recent</string>
+    <string name="main_landing_category_popular">Popular</string>
+
 </resources>
