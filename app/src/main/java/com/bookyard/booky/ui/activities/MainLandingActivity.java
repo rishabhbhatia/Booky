@@ -10,6 +10,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.bookyard.booky.R;
+import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +37,8 @@ public class MainLandingActivity extends BookyActivity {
     TextView tvCategoryLeft;
     @BindView(R.id.tv_category_right)
     TextView tvCategoryRight;
+    @BindView(R.id.rv_main_landing)
+    SuperRecyclerView rvMainLanding;
 
     private final int PADDING_LARGE = 25;
     private final int PADDING_MEDIUM = 15;

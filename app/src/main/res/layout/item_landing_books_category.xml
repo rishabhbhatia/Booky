@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/iv_item_landing_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:padding="@dimen/medium_padding"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_item_landing_category_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_item_landing_category"
+            android:layout_toEndOf="@+id/iv_item_landing_category"
+            android:layout_toLeftOf="@+id/rl_item_landing_category_action"
+            android:layout_toStartOf="@+id/rl_item_landing_category_action"
+            android:layout_centerVertical="true"
+            >
+
+            <TextView
+                android:id="@+id/tv_item_landing_category_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="marquee"
+                android:text="Fiction"
+                android:paddingLeft="@dimen/small_padding"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingRight="@dimen/small_padding"
+                android:paddingEnd="@dimen/small_padding"
+                style="@style/Item_Landing_Category_Name"
+                />
+
+            <TextView
+                android:id="@+id/tv_item_landing_category_popular_authors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="marquee"
+                android:text="Daniel Judson, James Patterson, Marc McCluskey"
+                android:paddingLeft="@dimen/small_padding"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingRight="@dimen/small_padding"
+                android:paddingEnd="@dimen/small_padding"
+                android:layout_below="@+id/tv_item_landing_category_name"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_item_landing_category_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/medium_padding"
+            android:layout_centerVertical="true"
+            >
+
+            <ImageView
+                android:id="@+id/iv_item_landing_category_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:rotation="180"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="marquee"
+                android:layout_below="@+id/iv_item_landing_category_action"
+                android:text="View All"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.malinskiy.superrecyclerview.SuperRecyclerView
+            android:id="@+id/rv_item_landing_category_sample_books"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:recyclerClipToPadding="false"
+            app:recyclerPadding="@dimen/small_padding"
+            app:scrollbarStyle="insideInset"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="100%"
+            />
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</LinearLayout>
