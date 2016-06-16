@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/ll_item_landing_category_holder"
+    android:layout_marginTop="@dimen/medium_padding"
+    android:layout_marginBottom="@dimen/medium_padding"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/small_padding"
         >
 
         <ImageView
@@ -18,6 +21,8 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:padding="@dimen/medium_padding"
+            android:maxHeight="60dp"
+            android:maxWidth="60dp"
             />
 
         <RelativeLayout
@@ -110,5 +115,13 @@
 
     </android.support.percent.PercentRelativeLayout>
 
+    <View
+        android:id="@+id/view_item_landing_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginBottom="@dimen/small_padding"
+        android:background="@drawable/toolbar_drop_shadow"
+        />
 
 </LinearLayout>

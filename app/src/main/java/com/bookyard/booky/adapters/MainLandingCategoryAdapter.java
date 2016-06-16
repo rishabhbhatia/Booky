@@ -51,6 +51,11 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
         try {
             holder.clear();
 
+            if(position != categories.size()-1)
+            {
+                holder.divider.setVisibility(View.VISIBLE);
+            }
+
             final BookCategory category = categories.get(position);
 
             if (category.getImageUrl() != null)
@@ -124,6 +129,8 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
         SuperRecyclerView rvItemLandingCategorySampleBooks;
         @BindView(R.id.ll_item_landing_category_holder)
         LinearLayout llItemLandingCategoryHolder;
+        @BindView(R.id.view_item_landing_divider)
+        View divider;
 
         public MainLandingCategoryHolder(View itemView) {
             super(itemView);
@@ -132,7 +139,7 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
 
         public void clear()
         {
-
+            divider.setVisibility(View.GONE);
         }
     }
 

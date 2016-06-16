@@ -2,6 +2,7 @@ package com.bookyard.booky.ui.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +11,11 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.bookyard.booky.R;
+import com.bookyard.booky.adapters.MainLandingCategoryAdapter;
+import com.bookyard.booky.models.BookCategory;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +54,42 @@ public class MainLandingActivity extends BookyActivity {
         setContentView(R.layout.activity_main_landing);
         ButterKnife.bind(this);
 
+        populateDummyCategories();
+    }
+
+    private void populateDummyCategories()
+    {
+        ArrayList<String> categoryNames = new ArrayList<>();
+        categoryNames.add("Thriller");
+        categoryNames.add("Drama");
+        categoryNames.add("Romance");
+        categoryNames.add("Misery");
+        categoryNames.add("Comic");
+        categoryNames.add("Animes");
+        categoryNames.add("Biography");
+        categoryNames.add("Discovery");
+        categoryNames.add("Travel");
+        categoryNames.add("Fashion");
+        categoryNames.add("Magazines");
+
+        ArrayList<BookCategory> bookCategories = new ArrayList<>();
+
+        for(int i =0; i<categoryNames.size(); i++)
+        {
+            BookCategory bookCategory = new BookCategory();
+            bookCategory.setName(categoryNames.get(i));
+            bookCategory.setPopularAuthors("Daniel Judson, James Patterson, Marc McCluskey");
+            bookCategory.setImageUrl("http://jeertspc.com/wp-content/uploads/2015/04/image003.jpg");
+
+            bookCategories.add(bookCategory);
+        }
+
+        MainLandingCategoryAdapter adapter = new MainLandingCategoryAdapter(MainLandingActivity.this, bookCategories);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainLandingActivity.this);
+        rvMainLanding.setLayoutManager(layoutManager);
+
+        rvMainLanding.setAdapter(adapter);
     }
 
     @Override
