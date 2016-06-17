@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/ll_item_landing_category_holder"
-    android:layout_marginTop="@dimen/medium_padding"
-    android:layout_marginBottom="@dimen/medium_padding"
+    android:layout_marginBottom="@dimen/extra_small_padding"
     >
 
     <RelativeLayout
