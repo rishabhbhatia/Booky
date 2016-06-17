@@ -2,6 +2,7 @@ package com.bookyard.booky.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,18 +70,6 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
                         .centerCrop()
                         .crossFade()
                         .placeholder(android.R.drawable.progress_indeterminate_horizontal)
-                        .listener(new RequestListener<String, GlideDrawable>() {
-                            @Override
-                            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                                e.printStackTrace();
-                                return false;
-                            }
-
-                            @Override
-                            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                                return false;
-                            }
-                        })
                         .into(holder.ivItemLandingCategory);
 
             }
