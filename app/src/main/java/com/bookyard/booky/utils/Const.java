@@ -16,4 +16,6 @@ public class Const {
 
     public static final String SHARED_PREFERENCES_NAME = "bookyard_booky";
 
+    public static final String CLOUDINARY_BASE_URL = "http://res.cloudinary.com/booky/image/fetch/";
+
 }

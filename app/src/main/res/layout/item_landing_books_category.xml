@@ -21,8 +21,6 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:padding="@dimen/medium_padding"
-            android:maxHeight="60dp"
-            android:maxWidth="60dp"
             />
 
         <RelativeLayout

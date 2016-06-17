@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.bookyard.booky.R;
 import com.bookyard.booky.adapters.MainLandingCategoryAdapter;
 import com.bookyard.booky.models.BookCategory;
+import com.bookyard.booky.utils.Const;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
@@ -48,6 +50,8 @@ public class MainLandingActivity extends BookyActivity {
     private final int PADDING_LARGE = 25;
     private final int PADDING_MEDIUM = 15;
 
+    //Cloudinary setup for cdn
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +83,13 @@ public class MainLandingActivity extends BookyActivity {
             BookCategory bookCategory = new BookCategory();
             bookCategory.setName(categoryNames.get(i));
             bookCategory.setPopularAuthors("Daniel Judson, James Patterson, Marc McCluskey");
-            bookCategory.setImageUrl("http://jeertspc.com/wp-content/uploads/2015/04/image003.jpg");
+            bookCategory.setImageUrl(bookCategory.getDemoImage("60","60","https://pixabay.com/static/uploads/photo/2016" +
+                    "/03/11/02/08/speed-1249610_960_720.jpg"));
 
             bookCategories.add(bookCategory);
+
+            if(i == 0)  Log.d(Const.TAG, bookCategory.getImageUrl());
+
         }
 
         MainLandingCategoryAdapter adapter = new MainLandingCategoryAdapter(MainLandingActivity.this, bookCategories);

@@ -1,5 +1,7 @@
 package com.bookyard.booky.models;
 
+import com.bookyard.booky.utils.Const;
+
 import java.util.List;
 
 /**
@@ -42,5 +44,10 @@ public class BookCategory {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public String getDemoImage(String width, String height,String imageUrl){
+
+        return Const.CLOUDINARY_BASE_URL+"w_"+width+","+"h_"+height+"/"+imageUrl;
     }
 }
