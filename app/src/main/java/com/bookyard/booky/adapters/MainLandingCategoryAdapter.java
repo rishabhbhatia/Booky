@@ -16,16 +16,12 @@ import com.bookyard.booky.R;
 import com.bookyard.booky.models.BookCategory;
 import com.bookyard.booky.utils.BookyUtils;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Rishabh Bhatia on 6/17/2016.
@@ -71,6 +67,10 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
             holder.ivItemLandingCategory.getLayoutParams().height = height/10;
             holder.ivItemLandingCategory.getLayoutParams().width = width/6;
 
+            holder.rvItemLandingCategorySampleBooks.requestLayout();
+            holder.rvItemLandingCategorySampleBooks.getLayoutParams().height = height/3;
+            holder.rvItemLandingCategorySampleBooks.getLayoutParams().width = width;
+
             if (category.getImageUrl() != null)
             {
                 Glide
@@ -112,16 +112,6 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
     @Override
     public int getItemCount() {
         return categories.size();
-    }
-
-    @OnClick({R.id.rl_item_landing_category_action, R.id.ll_item_landing_category_holder})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.rl_item_landing_category_action:
-                break;
-            case R.id.ll_item_landing_category_holder:
-                break;
-        }
     }
 
     static class MainLandingCategoryHolder extends RecyclerView.ViewHolder {

@@ -103,7 +103,7 @@
         <com.malinskiy.superrecyclerview.SuperRecyclerView
             android:id="@+id/rv_item_landing_category_sample_books"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             app:recyclerClipToPadding="false"
             app:recyclerPadding="@dimen/small_padding"
             app:scrollbarStyle="insideInset"

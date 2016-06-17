@@ -50,8 +50,6 @@ public class MainLandingActivity extends BookyActivity {
     private final int PADDING_LARGE = 25;
     private final int PADDING_MEDIUM = 15;
 
-    //Cloudinary setup for cdn
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
