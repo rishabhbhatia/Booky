@@ -1,8 +1,10 @@
 package com.bookyard.booky.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import com.bookyard.booky.R;
 import com.bookyard.booky.models.BookCategory;
 import com.bookyard.booky.utils.BookyUtils;
+import com.bookyard.booky.utils.Const;
 import com.bumptech.glide.Glide;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
@@ -95,6 +98,17 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
             }else
             {
                 holder.tvItemLandingCategoryPopularAuthors.setText("");
+            }
+
+            if(category.getBooks() != null)
+            {
+                MainLandingBookCoverAdapter adapter = new MainLandingBookCoverAdapter(context, category.getBooks());
+
+                LinearLayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false);
+                holder.rvItemLandingCategorySampleBooks.setLayoutManager(layoutManager);
+
+                holder.rvItemLandingCategorySampleBooks.setAdapter(adapter);
+
             }
 
             holder.rlItemLandingCategoryAction.setOnClickListener(new View.OnClickListener() {

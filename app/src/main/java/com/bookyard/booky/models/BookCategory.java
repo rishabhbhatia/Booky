@@ -2,7 +2,7 @@ package com.bookyard.booky.models;
 
 import com.bookyard.booky.utils.Const;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Rishabh Bhatia on 6/17/2016.
@@ -12,7 +12,7 @@ public class BookCategory {
     private String imageUrl;
     private String name;
     private String popularAuthors;
-    private List<Book> books;
+    private ArrayList<Book> books;
 
     public String getImageUrl() {
         return imageUrl;
@@ -38,15 +38,15 @@ public class BookCategory {
         this.name = name;
     }
 
-    public List<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
 
-    public String getDemoImage(String width, String height,String imageUrl){
+    public static String getDemoImage(String width, String height,String imageUrl){
 
         return Const.CLOUDINARY_BASE_URL+"w_"+width+","+"h_"+height+"/"+imageUrl;
     }

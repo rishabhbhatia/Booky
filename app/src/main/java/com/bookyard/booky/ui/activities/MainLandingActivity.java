@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bookyard.booky.R;
 import com.bookyard.booky.adapters.MainLandingCategoryAdapter;
+import com.bookyard.booky.models.Book;
 import com.bookyard.booky.models.BookCategory;
 import com.bookyard.booky.utils.Const;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
@@ -81,12 +82,11 @@ public class MainLandingActivity extends BookyActivity {
             BookCategory bookCategory = new BookCategory();
             bookCategory.setName(categoryNames.get(i));
             bookCategory.setPopularAuthors("Daniel Judson, James Patterson, Marc McCluskey");
-            bookCategory.setImageUrl(bookCategory.getDemoImage("60","60","https://pixabay.com/static/uploads/photo/2016" +
+            bookCategory.setImageUrl(BookCategory.getDemoImage("60","60","https://pixabay.com/static/uploads/photo/2016" +
                     "/03/11/02/08/speed-1249610_960_720.jpg"));
+            bookCategory.setBooks(generateRandomBooks());
 
             bookCategories.add(bookCategory);
-
-            if(i == 0)  Log.d(Const.TAG, bookCategory.getImageUrl());
 
         }
 
@@ -96,6 +96,24 @@ public class MainLandingActivity extends BookyActivity {
         rvMainLanding.setLayoutManager(layoutManager);
 
         rvMainLanding.setAdapter(adapter);
+    }
+
+    private ArrayList<Book> generateRandomBooks()
+    {
+        ArrayList<Book> books = new ArrayList<>();
+
+        for(int i=0; i<15;i++)
+        {
+            Book book = new Book();
+            book.setName("Half Girlfriend");
+            book.setPrice("Rs 125");
+            book.setImageUrl(BookCategory.getDemoImage("60","60","https://pixabay.com/static/uploads/photo/2016" +
+                    "/03/11/02/08/speed-1249610_960_720.jpg"));
+
+            books.add(book);
+        }
+
+        return books;
     }
 
     @Override

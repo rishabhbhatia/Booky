@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:id="@+id/rl_item_book_cover_holder"
+    android:layout_marginRight="@dimen/large_padding"
     >
 
     <ImageView
@@ -22,11 +23,9 @@
         android:maxLines="1"
         android:ellipsize="marquee"
         android:text="The Hunger G.."
-        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginTop="@dimen/extra_small_padding"
         android:layout_below="@+id/iv_item_book_cover"
-        android:layout_centerHorizontal="true"
-        android:maxLength="14"
-        android:textSize="17sp"
+        android:textSize="14sp"
         android:textColor="@android:color/black"
         />
 
@@ -38,7 +37,7 @@
         android:ellipsize="marquee"
         android:text="Rs. 125"
         android:layout_below="@+id/tv_item_book_name"
-        android:textSize="16sp"
+        android:textSize="12sp"
         />
 
 </RelativeLayout>

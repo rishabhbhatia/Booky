@@ -1,6 +1,6 @@
 package com.bookyard.booky.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Rishabh Bhatia on 6/17/2016.
@@ -8,7 +8,7 @@ import java.util.List;
 public class Book {
 
     private String imageUrl;
-    private List<String> samplePageImages;
+    private ArrayList<String> samplePageImages;
     private String name;
     private BookCategory category;
     private String price;
@@ -22,11 +22,11 @@ public class Book {
         this.imageUrl = imageUrl;
     }
 
-    public List<String> getSamplePageImages() {
+    public ArrayList<String> getSamplePageImages() {
         return samplePageImages;
     }
 
-    public void setSamplePageImages(List<String> samplePageImages) {
+    public void setSamplePageImages(ArrayList<String> samplePageImages) {
         this.samplePageImages = samplePageImages;
     }
 

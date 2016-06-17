@@ -107,8 +107,6 @@
             app:recyclerClipToPadding="false"
             app:recyclerPadding="@dimen/small_padding"
             app:scrollbarStyle="insideInset"
-            app:layout_heightPercent="40%"
-            app:layout_widthPercent="100%"
             />
 
     </android.support.percent.PercentRelativeLayout>
