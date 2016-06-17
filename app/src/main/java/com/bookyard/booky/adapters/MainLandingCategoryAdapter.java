@@ -62,6 +62,15 @@ public class MainLandingCategoryAdapter extends RecyclerView.Adapter<MainLanding
 
             final BookCategory category = categories.get(position);
 
+            DisplayMetrics metrics = BookyUtils.getScreenResolution(context);
+
+            int width = metrics.widthPixels;
+            int height = metrics.heightPixels;
+
+            holder.ivItemLandingCategory.requestLayout();
+            holder.ivItemLandingCategory.getLayoutParams().height = height/10;
+            holder.ivItemLandingCategory.getLayoutParams().width = width/6;
+
             if (category.getImageUrl() != null)
             {
                 Glide
