@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:id="@+id/sv_book_details_holder"
+    >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/prl_book_details_holder"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rl_book_details_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="100%"
+            >
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/sl_book_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <com.daimajia.slider.library.Indicators.PagerIndicator
+                android:id="@+id/sl_indicator_book_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/small_padding"
+                />
+
+        </RelativeLayout>
+
+        <RatingBar
+            android:id="@+id/rb_book_details_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="4"
+            android:layout_below="@+id/rl_book_details_slider"
+            android:layout_margin="@dimen/medium_padding"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_details_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rishabh's Cave"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:layout_below="@+id/rb_book_details_rating"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_details_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By Audrey Caramel"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_book_details_name"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_details_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/book_summary"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_book_details_price"
+            android:textSize="15sp"
+            android:maxLines="30"
+            android:lines="15"
+            android:ellipsize="end"
+            android:gravity="left|start"
+            android:layout_margin="@dimen/extra_large_padding"
+            />
+
+        <TextView
+            android:id="@+id/tv_book_details_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_bg"
+            android:text="Show more"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/medium_padding"
+            android:drawablePadding="@dimen/small_padding"
+            android:layout_below="@+id/tv_book_details_summary"
+            android:drawableLeft="@android:drawable/arrow_down_float"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/extra_extra_large_padding"
+            android:layout_below="@+id/tv_book_details_summary"
+            />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</ScrollView>
