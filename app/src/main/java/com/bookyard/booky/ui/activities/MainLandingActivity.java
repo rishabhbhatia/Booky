@@ -13,8 +13,10 @@ import android.widget.TextView;
 
 import com.bookyard.booky.R;
 import com.bookyard.booky.adapters.MainLandingCategoryAdapter;
+import com.bookyard.booky.interfaces.RecyclerItemClickListener;
 import com.bookyard.booky.models.Book;
 import com.bookyard.booky.models.BookCategory;
+import com.bookyard.booky.ui.fragments.CategoryBooksFragment;
 import com.bookyard.booky.utils.Const;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
@@ -96,6 +98,15 @@ public class MainLandingActivity extends BookyActivity {
         rvMainLanding.setLayoutManager(layoutManager);
 
         rvMainLanding.setAdapter(adapter);
+
+        rvMainLanding.addOnItemTouchListener(new RecyclerItemClickListener(MainLandingActivity.this,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        switchFragment(MainLandingActivity.this.getSupportFragmentManager(),
+                                CategoryBooksFragment.newInstance(), "baba_bc", Const.FRAGMENT_SWITCH_REPLACE);
+                    }
+                }));
     }
 
     private ArrayList<Book> generateRandomBooks()
