@@ -63,7 +63,7 @@ public class CategoryBooksAdapter extends RecyclerView.Adapter<CategoryBooksAdap
             int height = metrics.heightPixels;
 
             holder.llItemCategoryBookImageHolder.requestLayout();
-            holder.llItemCategoryBookImageHolder.getLayoutParams().height = height/3;
+            holder.llItemCategoryBookImageHolder.getLayoutParams().height = height/4;
             holder.llItemCategoryBookImageHolder.getLayoutParams().width = width/3;
 
 
