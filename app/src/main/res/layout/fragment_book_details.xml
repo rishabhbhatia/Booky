@@ -10,8 +10,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/prl_book_details_holder"
+        android:layout_marginBottom="@dimen/large_padding"
         >
 
         <RelativeLayout
