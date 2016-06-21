@@ -5,20 +5,19 @@
     android:layout_height="wrap_content"
     android:fillViewport="true"
     android:id="@+id/sv_book_details_holder"
+    android:background="@android:color/background_light"
     >
 
-    <android.support.percent.PercentRelativeLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/prl_book_details_holder"
         >
 
         <RelativeLayout
             android:id="@+id/rl_book_details_slider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_heightPercent="40%"
-            app:layout_widthPercent="100%"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             >
 
             <com.daimajia.slider.library.SliderLayout
@@ -107,7 +106,6 @@
             android:layout_below="@+id/tv_book_details_summary"
             />
 
-
-    </android.support.percent.PercentRelativeLayout>
+    </RelativeLayout>
 
 </ScrollView>

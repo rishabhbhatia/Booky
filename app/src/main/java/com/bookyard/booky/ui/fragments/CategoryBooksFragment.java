@@ -17,6 +17,7 @@ import com.bookyard.booky.adapters.CategoryBooksAdapter;
 import com.bookyard.booky.interfaces.RecyclerItemClickListener;
 import com.bookyard.booky.models.Book;
 import com.bookyard.booky.models.BookCategory;
+import com.bookyard.booky.ui.activities.BookyActivity;
 import com.bookyard.booky.utils.BookyUtils;
 import com.bookyard.booky.utils.Const;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -84,36 +85,48 @@ public class CategoryBooksFragment extends BookyFragment implements BaseSliderVi
             @Override
             public void onItemClick(View view, int position) {
                 Log.d(Const.TAG, "hello to item at pos: " + position);
+                ((BookyActivity)getActivity()).switchFragment(getActivity().getSupportFragmentManager(),
+                        BookDetailsFragment.newInstance(), Const.BOOK_DETAILS_FRAG_TAG, Const.FRAGMENT_SWITCH_ADD);
             }
         }));
 
-        HashMap<String,String> url_maps = new HashMap<String, String>();
-        url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
-        url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
-        url_maps.put("House of Cards", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
-        url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+        loadBookSlider();
+    }
 
-        for(String name : url_maps.keySet()){
-            TextSliderView textSliderView = new TextSliderView(getActivity());
-            // initialize a SliderLayout
-            textSliderView
-                    .description(name)
-                    .image(url_maps.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
+    private void loadBookSlider()
+    {
+        try {
 
-            //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra",name);
+            HashMap<String, String> url_maps = new HashMap<String, String>();
+            url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
+            url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
+            url_maps.put("House of Cards", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
+            url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
 
-            slBookDetails.addSlider(textSliderView);
+            for (String name : url_maps.keySet()) {
+                TextSliderView textSliderView = new TextSliderView(getActivity());
+                // initialize a SliderLayout
+                textSliderView
+                        .description(name)
+                        .image(url_maps.get(name))
+                        .setScaleType(BaseSliderView.ScaleType.Fit)
+                        .setOnSliderClickListener(this);
 
-            slBookDetails.setPresetTransformer(SliderLayout.Transformer.Accordion);
-            slBookDetails.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-            slBookDetails.setCustomAnimation(new DescriptionAnimation());
-            slBookDetails.setDuration(10000);
-            slBookDetails.addOnPageChangeListener(this);
+                //add your extra information
+                textSliderView.bundle(new Bundle());
+                textSliderView.getBundle()
+                        .putString("extra", name);
+
+                slBookDetails.addSlider(textSliderView);
+
+                slBookDetails.setPresetTransformer(SliderLayout.Transformer.Accordion);
+                slBookDetails.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+                slBookDetails.setCustomAnimation(new DescriptionAnimation());
+                slBookDetails.setDuration(10000);
+                slBookDetails.addOnPageChangeListener(this);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

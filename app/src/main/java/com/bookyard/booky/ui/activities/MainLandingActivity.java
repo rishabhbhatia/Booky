@@ -104,7 +104,8 @@ public class MainLandingActivity extends BookyActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         switchFragment(MainLandingActivity.this.getSupportFragmentManager(),
-                                CategoryBooksFragment.newInstance(), "baba_bc", Const.FRAGMENT_SWITCH_REPLACE);
+                                CategoryBooksFragment.newInstance(), Const.CATEGORY_BOOKS_FRAG_TAG,
+                                Const.FRAGMENT_SWITCH_REPLACE);
                     }
                 }));
     }
