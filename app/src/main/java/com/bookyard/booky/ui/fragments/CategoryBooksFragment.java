@@ -6,13 +6,11 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.bookyard.booky.R;
 import com.bookyard.booky.adapters.CategoryBooksAdapter;
@@ -21,7 +19,6 @@ import com.bookyard.booky.models.Book;
 import com.bookyard.booky.models.BookCategory;
 import com.bookyard.booky.utils.BookyUtils;
 import com.bookyard.booky.utils.Const;
-import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -41,8 +38,6 @@ import butterknife.ButterKnife;
  */
 public class CategoryBooksFragment extends BookyFragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
     @BindView(R.id.collapsing_category_books)
     CollapsingToolbarLayout collapsingCategoryBooks;
     @BindView(R.id.appbar_category_books)
