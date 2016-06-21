@@ -3,17 +3,21 @@ package com.bookyard.booky.adapters;
 import android.content.Context;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bookyard.booky.R;
 import com.bookyard.booky.models.Book;
 import com.bookyard.booky.utils.BookyUtils;
+import com.bookyard.booky.utils.Const;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -33,6 +37,7 @@ public class CategoryBooksAdapter extends RecyclerView.Adapter<CategoryBooksAdap
     public CategoryBooksAdapter(Context context, ArrayList<Book> books) {
         this.books = books;
         this.context = context;
+        Log.d(Const.TAG, "books added: "+books.size());
     }
 
     @Override
@@ -51,6 +56,16 @@ public class CategoryBooksAdapter extends RecyclerView.Adapter<CategoryBooksAdap
             holder.clear();
 
             final Book book = books.get(position);
+
+            DisplayMetrics metrics = BookyUtils.getScreenResolution(context);
+
+            int width = metrics.widthPixels;
+            int height = metrics.heightPixels;
+
+            holder.llItemCategoryBookImageHolder.requestLayout();
+            holder.llItemCategoryBookImageHolder.getLayoutParams().height = height/3;
+            holder.llItemCategoryBookImageHolder.getLayoutParams().width = width/3;
+
 
             if (book.getImageUrl() != null) {
                 Glide
@@ -83,6 +98,7 @@ public class CategoryBooksAdapter extends RecyclerView.Adapter<CategoryBooksAdap
 
         } catch (Exception e) {
             e.printStackTrace();
+            Log.d(Const.TAG, "exception");
         }
     }
 
@@ -102,7 +118,7 @@ public class CategoryBooksAdapter extends RecyclerView.Adapter<CategoryBooksAdap
         @BindView(R.id.tv_item_category_book_price)
         TextView tvItemCategoryBookPrice;
         @BindView(R.id.prl_item_category_book)
-        PercentRelativeLayout prlItemCategoryBook;
+        RelativeLayout prlItemCategoryBook;
 
         public CategoryBooksHolder(View itemView) {
             super(itemView);
