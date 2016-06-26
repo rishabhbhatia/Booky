@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@drawable/ic_background"
     >
 
     <RelativeLayout
@@ -28,10 +28,15 @@
             android:layout_height="wrap_content"
             android:ems="12"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/white"
+            android:background="@android:color/transparent"
             android:padding="@dimen/large_padding"
             android:hint="@string/login_phone_number"
             android:inputType="phone"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:drawablePadding="@dimen/small_padding"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:drawableStart="@android:drawable/sym_action_email"
             />
 
         <EditText
@@ -40,12 +45,17 @@
             android:layout_height="wrap_content"
             android:ems="12"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/white"
+            android:background="@android:color/transparent"
             android:padding="@dimen/large_padding"
             android:hint="@string/login_pass"
             android:layout_marginTop="@dimen/large_padding"
             android:layout_marginBottom="@dimen/extra_large_padding"
             android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:drawablePadding="@dimen/small_padding"
+            android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
             />
 
         <Button
