@@ -69,7 +69,7 @@
             fancy:fb_textSize="15sp"
             fancy:fb_textGravity="center"
             fancy:fb_radius="5dp"
-            fancy:fb_defaultColor="#4a9a8a"
+            fancy:fb_defaultColor="@color/login_bg"
             />
 
         <TextView
