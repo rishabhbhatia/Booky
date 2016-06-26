@@ -28,6 +28,12 @@
             android:name=".ui.activities.MainLandingActivity"
             android:screenOrientation="portrait"
             />
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+
+        </activity>
     </application>
 
 </manifest>

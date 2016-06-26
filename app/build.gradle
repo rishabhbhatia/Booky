@@ -39,4 +39,5 @@ dependencies {
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.medyo:fancybuttons:1.8.1'
+    compile files('libs/razorpay-android-0.13.0.jar')
 }

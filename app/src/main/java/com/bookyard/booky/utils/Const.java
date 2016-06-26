@@ -22,4 +22,7 @@ public class Const {
 
     public static final String CLOUDINARY_BASE_URL = "http://res.cloudinary.com/booky/image/fetch/";
 
+    public static final String RAZORPAY_KEY_ID = "rzp_test_K6xfUQxIlAHk2e";
+    public static final String RAZORPAY_KEY_SECRET = "CHWGRCMLwkH6lNfkTHOeU8w7";
+
 }
