@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_background"
@@ -10,9 +11,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/black"
         android:alpha="0.4"
-        >
-
-    </RelativeLayout>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +19,7 @@
         android:orientation="vertical"
         android:layout_centerInParent="true"
         android:padding="@dimen/large_padding"
+        android:gravity="center"
         >
 
         <EditText
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="12"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:padding="@dimen/large_padding"
             android:hint="@string/login_phone_number"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="12"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:padding="@dimen/large_padding"
             android:hint="@string/login_pass"
@@ -58,32 +58,55 @@
             android:drawableStart="@android:drawable/ic_lock_idle_lock"
             />
 
-        <Button
+        <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/bt_login_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/extra_large_padding"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless"
-            android:background="@android:color/black"
-            android:text="@string/login_action"
-            android:textColor="@android:color/white"
-            android:textAllCaps="true"
+            fancy:fb_text="@string/login_action"
+            fancy:fb_textColor="@android:color/white"
+            fancy:fb_textSize="15sp"
+            fancy:fb_textGravity="center"
+            fancy:fb_radius="5dp"
+            fancy:fb_defaultColor="#4a9a8a"
             />
 
-        <Button
-            android:id="@+id/bt_login_sign_up"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_login_forgot_pass"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/small_padding"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless"
-            android:background="@android:color/black"
-            android:text="@string/login_sign_up"
+            android:layout_margin="@dimen/extra_large_padding"
+            android:text="@string/login_forgot_pass"
             android:textColor="@android:color/white"
-            android:textAllCaps="true"
+            android:gravity="center"
+            android:textSize="15sp"
             />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/tv_login_sign_up"
+        android:background="@color/gray_light"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginStart="@dimen/large_padding"
+        android:layout_marginEnd="@dimen/large_padding"
+        android:layout_marginRight="@dimen/large_padding"
+        />
+
+    <TextView
+        android:id="@+id/tv_login_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/extra_large_padding"
+        android:padding="@dimen/extra_extra_large_padding"
+        android:text="@string/login_new_user"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:textSize="15sp"
+        />
 
 </RelativeLayout>

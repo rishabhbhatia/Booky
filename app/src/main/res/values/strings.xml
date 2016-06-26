@@ -27,6 +27,8 @@ The book ends as the author visits the rural school in Dumraon three and a half 
     <string name="login_pass">Password</string>
     <string name="login_action">Login</string>
     <string name="login_sign_up">Sign Up</string>
+    <string name="login_forgot_pass">Forgot Password?</string>
+    <string name="login_new_user">New here? Sign Up</string>
 
     <!-- Main Landing Screen -->
     <string name="main_landing_category_recent">Recent</string>
