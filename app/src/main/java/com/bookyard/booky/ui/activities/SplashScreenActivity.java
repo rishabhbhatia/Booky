@@ -147,6 +147,7 @@ public class SplashScreenActivity extends BookyActivity {
 
                         if(quote != null && !quote.equalsIgnoreCase(""))
                         {
+                            tvSplashTagline.setVisibility(View.VISIBLE);
                             tvSplashTagline.setText(quote);
 
                             BookyApplication.quoteOfDay = quote;
