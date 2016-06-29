@@ -25,8 +25,11 @@ public class Const {
     public static final String RAZORPAY_KEY_ID = "rzp_test_K6xfUQxIlAHk2e";
     public static final String RAZORPAY_KEY_SECRET = "CHWGRCMLwkH6lNfkTHOeU8w7";
 
+    public static final String MASHAPE_KEY = "CSifuBceFSmshSvKj4WHjQuinCCap1Prx69jsnbNACcWRQ2yPl";
+
     //URLS
     public static final String QUOTE_OF_DAY_URL = "http://quotes.rest/qod.json";
+    public static final String QUOTE_RANDOM_URL = "https://andruxnet-random-famous-quotes.p.mashape.com/";
 
     //KEYS
     public static final String QUOTE_CONTENTS_KEY = "contents";
@@ -37,6 +40,9 @@ public class Const {
     public static final String QUOTE_CATEGORY_KEY = "category";
     public static final String QUOTE_TITLE_KEY = "title";
     public static final String QUOTE_BACKGROUND_IMAGE_KEY = "background";
+    public static final String QUOTE_RANDOM_CATEGORY = "cat";
+    public static final String QUOTE_MOVIES = "movies";
+    public static final String QUOTE_FAMOUS = "famous";
 
 
 }

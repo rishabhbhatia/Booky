@@ -1,10 +1,10 @@
 package com.bookyard.booky.ui.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.ContentLoadingProgressBar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,7 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -75,14 +78,30 @@ public class SplashScreenActivity extends BookyActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                URL url = new URL(Const.QUOTE_OF_DAY_URL);
+                URL url = new URL(Const.QUOTE_RANDOM_URL);
                 Log.d(Const.TAG, "hello url: " + url.toString());
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
+                connection.setRequestMethod("POST");
                 connection.setReadTimeout(30 * 1000);
-                connection.connect();
+                connection.setRequestProperty("X-Mashape-Key", Const.MASHAPE_KEY);
+                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 
                 Log.d(Const.TAG, "hello hello mr. connection, ur here");
+
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter(Const.QUOTE_RANDOM_CATEGORY, Const.QUOTE_FAMOUS);
+
+                String query = builder.build().getEncodedQuery();
+
+                OutputStream os = connection.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+
+                connection.connect();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 StringBuilder stringBuilder = new StringBuilder();
@@ -118,13 +137,46 @@ public class SplashScreenActivity extends BookyActivity {
                 }else
                 {
                     JSONObject quotesResp = new JSONObject(quoteOfTheDayText);
-                    parseQuotesResponse(quotesResp);
+                    parseRandomQuoteResponse(quotesResp);
+//                    parseQuotesResponse(quotesResp);
                 }
 
             }catch (Exception e) {
                 e.printStackTrace();
                 tvSplashTagline.setVisibility(View.VISIBLE);
             }
+        }
+    }
+
+    private void parseRandomQuoteResponse(JSONObject quotesResp)
+    {
+        try {
+            if(quotesResp.has(Const.QUOTE_QUOTE_KEY) && !quotesResp.isNull(Const.QUOTE_QUOTE_KEY))
+            {
+                String quote = quotesResp.getString(Const.QUOTE_QUOTE_KEY);
+
+                if(quote != null && !quote.equalsIgnoreCase(""))
+                {
+                    tvSplashTagline.setVisibility(View.VISIBLE);
+                    tvSplashTagline.setText(quote);
+
+                    BookyApplication.quoteOfDay = quote;
+                }
+            }
+
+            if(quotesResp.has(Const.QUOTE_AUTHOR_KEY) && !quotesResp.isNull(Const.QUOTE_AUTHOR_KEY))
+            {
+                String author = quotesResp.getString(Const.QUOTE_AUTHOR_KEY);
+
+                if(author != null && !author.equalsIgnoreCase(""))
+                {
+                    tvSplashAuthor.setVisibility(View.VISIBLE);
+                    tvSplashAuthor.setText("- "+author+ " -");
+                }
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -73,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:indeterminate="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/small_padding"
+        android:layout_margin="@dimen/extra_extra_large_padding"
         />
 
 </RelativeLayout>
