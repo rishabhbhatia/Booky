@@ -7,6 +7,8 @@ import android.app.Application;
  */
 public class BookyApplication extends Application {
 
+    public static String quoteOfDay = "";
+
     @Override
     public void onCreate() {
         super.onCreate();

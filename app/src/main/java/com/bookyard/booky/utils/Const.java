@@ -25,4 +25,18 @@ public class Const {
     public static final String RAZORPAY_KEY_ID = "rzp_test_K6xfUQxIlAHk2e";
     public static final String RAZORPAY_KEY_SECRET = "CHWGRCMLwkH6lNfkTHOeU8w7";
 
+    //URLS
+    public static final String QUOTE_OF_DAY_URL = "http://quotes.rest/qod.json";
+
+    //KEYS
+    public static final String QUOTE_CONTENTS_KEY = "contents";
+    public static final String QUOTE_QUOTES_KEY = "quotes";
+    public static final String QUOTE_QUOTE_KEY = "quote";
+    public static final String QUOTE_AUTHOR_KEY = "author";
+    public static final String QUOTE_TAGS_KEY = "tags";
+    public static final String QUOTE_CATEGORY_KEY = "category";
+    public static final String QUOTE_TITLE_KEY = "title";
+    public static final String QUOTE_BACKGROUND_IMAGE_KEY = "background";
+
+
 }
