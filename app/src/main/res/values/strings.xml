@@ -23,8 +23,8 @@ The book ends as the author visits the rural school in Dumraon three and a half 
     <string name="splash_tagline">Dream Books Delivered At Doorstep</string>
 
     <!-- Login Screen -->
-    <string name="login_phone_number">Phone Number</string>
-    <string name="login_pass">Password</string>
+    <string name="login_phone_number">Phone number</string>
+    <string name="login_pass">*******</string>
     <string name="login_action">Login</string>
     <string name="login_sign_up">Sign Up</string>
     <string name="login_forgot_pass">Forgot Password?</string>
