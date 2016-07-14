@@ -37,5 +37,8 @@ The book ends as the author visits the rural school in Dumraon three and a half 
     <!-- Book Details Screen -->
     <string name="book_details_show_more">Show More</string>
 
+    <!-- Others -->
+    <string name="facebook_app_id">291882261162611</string>
+
 
 </resources>
