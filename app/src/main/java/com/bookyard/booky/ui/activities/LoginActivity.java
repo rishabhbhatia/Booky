@@ -87,7 +87,8 @@ public class LoginActivity extends BookyActivity {
         });
     }
 
-    private void measureLoginButton() {
+    private void measureLoginButton()
+    {
         etLoginPhoneNum.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         etLoginPass.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
@@ -96,6 +97,8 @@ public class LoginActivity extends BookyActivity {
 
         btLoginAction.setMinimumWidth(etLoginPhoneNum.getMeasuredWidth());
         //btLoginAction.setMinimumHeight(etLoginPhoneNum.getMeasuredHeight());
+
+        btFacebookLogin.setMinimumWidth(etLoginPhoneNum.getMeasuredWidth());
     }
 
     @Override
