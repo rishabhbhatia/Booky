@@ -1,6 +1,7 @@
 package com.bookyard.booky.ui.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -49,6 +51,7 @@ public class LoginActivity extends BookyActivity {
     LinearLayout llLoginInputHolder;
 
     private CallbackManager callbackManager;
+    private Profile fbProfile;
 
 
     @Override
@@ -83,11 +86,19 @@ public class LoginActivity extends BookyActivity {
                                     JSONObject object,
                                     GraphResponse response)
                             {
-                                //TODO fetch user info here
+                                Profile.fetchProfileForCurrentAccessToken();
+                                fbProfile = Profile.getCurrentProfile();
+                                String userName = fbProfile.getName();
+                                Log.d(Const.TAG, "Facebook Username: "+userName);
+                                Uri fbPhotoUri = fbProfile.getProfilePictureUri(150, 150);
+                                if(fbPhotoUri != null)
+                                {
+                                    Log.d(Const.TAG, "fb photo path: "+fbPhotoUri.toString());
+                                }
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,link");
+                parameters.putString("fields", "id,name,link,photo");
                 request.setParameters(parameters);
                 request.executeAsync();
             }
