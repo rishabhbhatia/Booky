@@ -13,8 +13,12 @@ import com.bookyard.booky.utils.Const;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -70,6 +74,22 @@ public class LoginActivity extends BookyActivity {
             public void onSuccess(LoginResult loginResult)
             {
                 Log.d(Const.TAG, "facebook login success: "+loginResult.getAccessToken());
+
+                GraphRequest request = GraphRequest.newMeRequest(
+                        loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(
+                                    JSONObject object,
+                                    GraphResponse response)
+                            {
+                                //TODO fetch user info here
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,link");
+                request.setParameters(parameters);
+                request.executeAsync();
             }
 
             @Override
