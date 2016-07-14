@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bookyard.booky.R;
+import com.bookyard.booky.models.User;
 import com.bookyard.booky.utils.Const;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -82,17 +83,18 @@ public class LoginActivity extends BookyActivity {
                         loginResult.getAccessToken(),
                         new GraphRequest.GraphJSONObjectCallback() {
                             @Override
-                            public void onCompleted(
-                                    JSONObject object,
-                                    GraphResponse response)
+                            public void onCompleted(JSONObject object, GraphResponse response)
                             {
                                 Profile.fetchProfileForCurrentAccessToken();
                                 fbProfile = Profile.getCurrentProfile();
                                 String userName = fbProfile.getName();
                                 Log.d(Const.TAG, "Facebook Username: "+userName);
+                                User.name = userName;
+
                                 Uri fbPhotoUri = fbProfile.getProfilePictureUri(150, 150);
                                 if(fbPhotoUri != null)
                                 {
+                                    User.profilePhoto = fbPhotoUri.toString();
                                     Log.d(Const.TAG, "fb photo path: "+fbPhotoUri.toString());
                                 }
                             }
