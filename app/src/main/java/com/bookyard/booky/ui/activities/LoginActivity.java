@@ -2,11 +2,21 @@ package com.bookyard.booky.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bookyard.booky.R;
+import com.bookyard.booky.utils.Const;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +39,12 @@ public class LoginActivity extends BookyActivity {
     TextView tvLoginSignUp;
     @BindView(R.id.tv_login_forgot_pass)
     TextView tvLoginForgotPass;
+    @BindView(R.id.bt_facebook_login)
+    LoginButton btFacebookLogin;
+    @BindView(R.id.ll_login_input_holder)
+    LinearLayout llLoginInputHolder;
+
+    private CallbackManager callbackManager;
 
 
     @Override
@@ -38,10 +54,40 @@ public class LoginActivity extends BookyActivity {
         ButterKnife.bind(this);
 
         measureLoginButton();
+
+        setupFacebookLogin();
     }
 
-    private void measureLoginButton()
+    private void setupFacebookLogin()
     {
+        btFacebookLogin.setReadPermissions(Arrays.asList("public_profile","email"));
+
+        callbackManager = CallbackManager.Factory.create();
+
+        // Callback registration
+        btFacebookLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult)
+            {
+                Log.d(Const.TAG, "facebook login success: "+loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel()
+            {
+                Log.d(Const.TAG, "facebook login cancelled");
+            }
+
+            @Override
+            public void onError(FacebookException exception)
+            {
+                Log.d(Const.TAG, "facebook login exception");
+                exception.printStackTrace();
+            }
+        });
+    }
+
+    private void measureLoginButton() {
         etLoginPhoneNum.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         etLoginPass.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
@@ -81,6 +127,12 @@ public class LoginActivity extends BookyActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
 }
